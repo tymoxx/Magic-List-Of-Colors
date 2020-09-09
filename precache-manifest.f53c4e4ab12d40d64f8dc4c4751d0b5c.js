@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7a133853bba71abf7296396b8494b856",
+    "revision": "a6775e3e5182762e73135c034a45e0d1",
     "url": "/Magic-List-Of-Colors/index.html"
   },
   {
-    "revision": "5b055af7855fa38c664b",
+    "revision": "23c8ade13882a09355df",
     "url": "/Magic-List-Of-Colors/static/css/main.a16910f3.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Magic-List-Of-Colors/static/js/2.41eeeb18.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5b055af7855fa38c664b",
-    "url": "/Magic-List-Of-Colors/static/js/main.71e0344f.chunk.js"
+    "revision": "23c8ade13882a09355df",
+    "url": "/Magic-List-Of-Colors/static/js/main.4aa9dc93.chunk.js"
   },
   {
     "revision": "2e511972da5ca4f8cdd6",
