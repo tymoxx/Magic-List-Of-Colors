@@ -43,6 +43,7 @@ const Card = (props) => {
     const hoveredStyles = {
         cursor: 'pointer',
         transform: `rotate(${getRandomFromValues([-4, -3, -2, 2, 3, 4])}deg) scale(${getRandomFromValues([1.05, 1.1, 1.15])})`,
+        boxShadow: '3px 10px 15px -4px rgba(0,0,0,0.30)',
         transition: `transform .2s`
     };
 
@@ -138,6 +139,7 @@ const App = () => {
 
     return (
         <div style={appStyles}>
+            {errorJXS}
             {cardsJXS}
             {modalJSX}
         </div>
