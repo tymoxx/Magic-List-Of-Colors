@@ -1,3 +1,10 @@
+# Magic List Of Colors
+## Colorful animated cardboard with modal.
+
+The cardboard is built with React and CSS (functional components and hooks).
+The cards are generated based on the data received from the API request. 
+Cards are animated on hover using CSS. The modal with the card's description pops up when clicking on the card. To close the modal, close outside.
+---
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
