@@ -19,7 +19,6 @@ const Modal = (props) => {
     const {colorProps, toggleModal, modalContent} = props;
 
     console.log(modalContent);
-    
 
     return <div className='modal-content'>
         {modalContent}
@@ -29,17 +28,35 @@ const Modal = (props) => {
 const Card = (props) => {
 
     const {colorProps, openModal} = props;
+    const [hovered, setHovered] = useState(false);
+
+    const getRandomFromValues = (arr) => {
+        const index = Math.floor(Math.random() * arr.length);
+        return arr[index];
+    };
 
     const cardStyles = {
         background: `${colorProps.color}`,
         backgroundImage: `linear-gradient(to bottom right, ${colorProps.color} 50%, white 160%)`
     };
 
+    const hoveredStyles = {
+        cursor: 'pointer',
+        transform: `rotate(${getRandomFromValues([-4, -3, -2, 2, 3, 4])}deg) scale(${getRandomFromValues([1.05, 1.1, 1.15])})`,
+        transition: `transform .2s`
+    };
+
     return (
         <div
             className={'card'}
-            style={cardStyles}
+            style={Object.assign({}, hovered ? hoveredStyles : {}, cardStyles)}
             onClick={() => openModal(colorProps.id)}
+            onMouseEnter={() => {
+                setHovered(true)
+            }}
+            onMouseLeave={() => {
+                setHovered(false)
+            }}
         >
             {colorProps.name.toUpperCase()}
             <span className={'year'}>{colorProps.year}</span>
