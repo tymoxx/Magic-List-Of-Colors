@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Magic-List-Of-Colors/static/css/main.a16910f3.chunk.css",
+    "main.js": "/Magic-List-Of-Colors/static/js/main.71e0344f.chunk.js",
+    "main.js.map": "/Magic-List-Of-Colors/static/js/main.71e0344f.chunk.js.map",
+    "runtime-main.js": "/Magic-List-Of-Colors/static/js/runtime-main.ebff5d24.js",
+    "runtime-main.js.map": "/Magic-List-Of-Colors/static/js/runtime-main.ebff5d24.js.map",
+    "static/js/2.41eeeb18.chunk.js": "/Magic-List-Of-Colors/static/js/2.41eeeb18.chunk.js",
+    "static/js/2.41eeeb18.chunk.js.map": "/Magic-List-Of-Colors/static/js/2.41eeeb18.chunk.js.map",
+    "index.html": "/Magic-List-Of-Colors/index.html",
+    "precache-manifest.ee48c891c26f6f65f4fd23bb5b6fdc48.js": "/Magic-List-Of-Colors/precache-manifest.ee48c891c26f6f65f4fd23bb5b6fdc48.js",
+    "service-worker.js": "/Magic-List-Of-Colors/service-worker.js",
+    "static/css/main.a16910f3.chunk.css.map": "/Magic-List-Of-Colors/static/css/main.a16910f3.chunk.css.map",
+    "static/js/2.41eeeb18.chunk.js.LICENSE.txt": "/Magic-List-Of-Colors/static/js/2.41eeeb18.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ebff5d24.js",
+    "static/js/2.41eeeb18.chunk.js",
+    "static/css/main.a16910f3.chunk.css",
+    "static/js/main.71e0344f.chunk.js"
+  ]
+}
