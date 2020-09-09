@@ -104,9 +104,6 @@ const App = () => {
                     setIsLoading(false);
                     setColors(result.data);
                 },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
                 (error) => {
                     setIsLoading(false);
                     setError(error);
@@ -136,6 +133,8 @@ const App = () => {
                 modalContent={isModalOpen}
             />
         </div>;
+
+    const errorJXS = error && <span>Sorry, an error happened why loading the data. Try again later</span>;
 
     return (
         <div style={appStyles}>
