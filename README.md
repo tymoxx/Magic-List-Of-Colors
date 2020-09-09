@@ -27,4 +27,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 #### `yarn build`
 
 To publish to Github Pages run:
-#### `yarn run deploy`
+#### `yarn deploy`

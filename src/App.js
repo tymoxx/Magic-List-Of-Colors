@@ -40,7 +40,7 @@ const Card = (props) => {
             className={'card'}
             style={Object.assign({}, hovered ? cardStylesHovered : {}, cardStyles)}
             onClick={() => openModal(colorProps.id)}
-            onMouseEnter={() => {
+            onMouseOver={() => {
                 setHovered(true)
             }}
             onMouseLeave={() => {
