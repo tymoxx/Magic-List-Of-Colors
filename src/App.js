@@ -4,24 +4,12 @@ import './Modal.css';
 
 const url = 'https://reqres.in/api/unknown?per_page=12';
 
-// const Modal = React.forwardRef((props, ref) => {
-//     const {colorProps, toggleModal} = props;
-//
-//     return <div className='modal'>
-//         <div className='modal-content'>
-//             Modal
-//         </div>
-//     </div>
-// });
-
 const Modal = (props) => {
 
-    const {colorProps, toggleModal, modalContent} = props;
-
-    console.log(modalContent);
+    const {children} = props;
 
     return <div className='modal-content'>
-        {modalContent}
+        {children}
     </div>
 };
 
@@ -40,7 +28,7 @@ const Card = (props) => {
         backgroundImage: `linear-gradient(to bottom right, ${colorProps.color} 50%, white 160%)`
     };
 
-    const hoveredStyles = {
+    const cardStylesHovered = {
         cursor: 'pointer',
         transform: `rotate(${getRandomFromValues([-4, -3, -2, 2, 3, 4])}deg) scale(${getRandomFromValues([1.05, 1.1, 1.15])})`,
         boxShadow: '3px 10px 15px -4px rgba(0,0,0,0.30)',
@@ -50,7 +38,7 @@ const Card = (props) => {
     return (
         <div
             className={'card'}
-            style={Object.assign({}, hovered ? hoveredStyles : {}, cardStyles)}
+            style={Object.assign({}, hovered ? cardStylesHovered : {}, cardStyles)}
             onClick={() => openModal(colorProps.id)}
             onMouseEnter={() => {
                 setHovered(true)
@@ -68,8 +56,8 @@ const Card = (props) => {
 const App = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useState(null);
-    const [colors, setColors] = useState([]);
+    const [selectedCardId, setSelectedCardId] = useState(null);
+    const [cards, setCards] = useState([]);
     const modalRef = useRef(null);
 
     useEffect(() => {
@@ -85,13 +73,12 @@ const App = () => {
     };
 
     function openModal(id) {
-        setIsModalOpen(id);
+        setSelectedCardId(id);
     }
 
     function handleMouseDown(e) {
         if (modalRef.current === (e.target)) {
-            setIsModalOpen(null);
-            console.log('click2');
+            setSelectedCardId(null);
         }
     }
 
@@ -102,7 +89,7 @@ const App = () => {
             .then(
                 (result) => {
                     setIsLoading(false);
-                    setColors(result.data);
+                    setCards(result.data);
                 },
                 (error) => {
                     setIsLoading(false);
@@ -115,7 +102,7 @@ const App = () => {
         return <h1>Loading...</h1>
     }
 
-    const cardsJXS = colors.map((color) => {
+    const cardsJXS = cards.map((color) => {
         return <Card
             key={color.id}
             colorProps={color}
@@ -123,15 +110,43 @@ const App = () => {
         />
     });
 
-    const modalJSX = isModalOpen &&
+    const fullCard = (color) => ({
+        padding: '20px 40px 40px 40px',
+        background: color,
+        border: 'none',
+});
+
+    const text = {
+        fontSize: '1.2em',
+        lineHeight: '2em',
+        color: 'white',
+        textTransform: 'uppercase',
+    };
+
+    const textHeader = {
+        fontWeight: 700,
+    };
+
+    const currentCard = cards.find((card) => (card.id === selectedCardId));
+
+    const modalJSX = selectedCardId &&
         <div
             className='modal'
             ref={modalRef}
         >
-            <Modal
-                openModal={openModal}
-                modalContent={isModalOpen}
-            />
+            <Modal>
+                <div style={fullCard(currentCard.color)}>
+                    <h1 style={{color: 'white'}}>Info:</h1>
+                    <span style={{...text, ...textHeader}}>Color:  </span>
+                    <span style={text}>{currentCard.name}</span>
+                    <br/>
+                    <span style={{...text, ...textHeader}}>Year:  </span>
+                    <span style={text}>{currentCard.year}</span>
+                    <br/>
+                    <span style={{...text, ...textHeader}}>HEX:  </span>
+                    <span style={text}>{currentCard.color}</span>
+                </div>
+            </Modal>
         </div>;
 
     const errorJXS = error && <span>Sorry, an error happened why loading the data. Try again later</span>;
